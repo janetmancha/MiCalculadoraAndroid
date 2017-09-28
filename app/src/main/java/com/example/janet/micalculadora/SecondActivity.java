@@ -34,18 +34,16 @@ public class SecondActivity extends AppCompatActivity {
                 } else if (r3.isChecked()) {
                     suma = firstNumber + 3;
                 }
-                if (suma > 0)
-                    Toast.makeText(getApplicationContext(), suma.toString(),Toast.LENGTH_SHORT).show();
-                else {
+                if (suma > 0) {
+                    Intent resultActivity = new Intent(getApplicationContext(), ResultActivity.class);
+                    resultActivity.putExtra("textView", suma);
+                    startActivity(resultActivity);
+                } else {
                     message = "Debes seleccionar algun numero";
                     Toast.makeText(getApplicationContext(), message,Toast.LENGTH_SHORT).show();
                 }
             }
         });
-
-
-
-
     }
 }
 
