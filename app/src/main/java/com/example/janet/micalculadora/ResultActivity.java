@@ -20,36 +20,14 @@ public class ResultActivity extends AppCompatActivity {
         final Button buttonEmpezar = (Button) findViewById(R.id.buttonEmpezar);
         final Button buttonSalir = (Button) findViewById(R.id.buttonSalir);
 
-//        findViewById(R.id.button).setOnClickListener(new View.OnClickListener() {
-//            public void onClick(View v)
-//            {
-//                String message;
-//                Intent secondActivity = new Intent(getApplicationContext(), SecondActivity.class);
-//
-//                if (r1.isChecked()) {
-//                    secondActivity.putExtra("firstNumber",1);
-//                    //message = "Ha seleccionado el 1";
-//                } else if (r2.isChecked()) {
-//                    secondActivity.putExtra("firstNumber",2);
-//                    //message = "Ha seleccionado el 2";
-//                } else if (r3.isChecked()) {
-//                    secondActivity.putExtra("firstNumber",3);
-//                    //message = "Ha seleccionado el 3";
-//                } else {
-//                    message = "Debes seleccionar algun numero";
-//                    Toast.makeText(getApplicationContext(), message,Toast.LENGTH_SHORT).show();
-//                    return;
-//                }
-//
-//                startActivity(secondActivity);
-//
-//            }
-//        });
+        Integer suma = getIntent().getIntExtra("suma",0);
+        textView.setText(suma.toString());
 
-
-
-
+        findViewById(R.id.buttonEmpezar).setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                Intent maintActivity = new Intent(getApplicationContext(), MainActivity.class);
+                startActivity(maintActivity);
+            }
+        });
     }
-
-
 }

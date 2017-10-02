@@ -36,7 +36,7 @@ public class SecondActivity extends AppCompatActivity {
                 }
                 if (suma > 0) {
                     Intent resultActivity = new Intent(getApplicationContext(), ResultActivity.class);
-                    resultActivity.putExtra("textView", suma);
+                    resultActivity.putExtra("suma", suma);
                     startActivity(resultActivity);
                 } else {
                     message = "Debes seleccionar algun numero";
