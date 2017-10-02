@@ -7,6 +7,8 @@ import android.view.View;
 import android.widget.RadioButton;
 import android.widget.Toast;
 
+import java.util.Random;
+
 
 public class MainActivity extends AppCompatActivity {
 
@@ -18,6 +20,14 @@ public class MainActivity extends AppCompatActivity {
         final RadioButton r2 = (RadioButton) findViewById(R.id.radioButton2);
         final RadioButton r3 = (RadioButton) findViewById(R.id.radioButton3);
 
+        Random random = new Random();
+        final Integer r1Int = random.nextInt(9) + 1;
+        r1.setText(r1Int.toString());
+        final Integer r2Int = random.nextInt(9) + 1;
+        r2.setText(r2Int.toString());
+        final Integer r3Int = random.nextInt(9) + 1;
+        r3.setText(r3Int.toString());
+
         findViewById(R.id.button).setOnClickListener(new View.OnClickListener() {
             public void onClick(View v)
             {
@@ -25,14 +35,11 @@ public class MainActivity extends AppCompatActivity {
                 Intent secondActivity = new Intent(getApplicationContext(), SecondActivity.class);
 
                 if (r1.isChecked()) {
-                    secondActivity.putExtra("firstNumber",1);
-                    //message = "Ha seleccionado el 1";
+                    secondActivity.putExtra("firstNumber",r1Int);
                 } else if (r2.isChecked()) {
-                    secondActivity.putExtra("firstNumber",2);
-                    //message = "Ha seleccionado el 2";
+                    secondActivity.putExtra("firstNumber",r2Int);
                 } else if (r3.isChecked()) {
-                    secondActivity.putExtra("firstNumber",3);
-                    //message = "Ha seleccionado el 3";
+                    secondActivity.putExtra("firstNumber",r3Int);
                 } else {
                     message = "Debes seleccionar algun numero";
                     Toast.makeText(getApplicationContext(), message,Toast.LENGTH_SHORT).show();
@@ -40,12 +47,7 @@ public class MainActivity extends AppCompatActivity {
                 }
 
                 startActivity(secondActivity);
-
             }
         });
-
-
-
-
     }
 }
